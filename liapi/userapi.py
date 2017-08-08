@@ -1,7 +1,7 @@
 import json
 import requests
-from return_objdict import *
-from found_class import *
+from liapi.return_objdict import *
+from liapi.found_class import *
 
 class user():
 

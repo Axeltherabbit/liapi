@@ -1,7 +1,7 @@
 import json
 import requests
-from userapi import *
-from page_data import *
+from liapi.userapi import *
+from liapi.page_data import *
 
 def team_user(teamname,us_for_page,page_number):
 

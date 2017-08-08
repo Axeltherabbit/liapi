@@ -1,8 +1,8 @@
 import json
 import requests
-from page_data import *
-from return_objdict import *
-from found_class import *
+from liapi.page_data import *
+from liapi.return_objdict import *
+from liapi.found_class import *
 
 class game_info(dict):
     def __init__(self,datajson):
