@@ -1,5 +1,5 @@
 # liapi
-lichess python api library
+lichess python api wrapper
 ***This is an ALPHA version***
 
 # install
