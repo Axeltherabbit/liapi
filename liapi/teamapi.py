@@ -5,7 +5,7 @@ from liapi.page_data import *
 
 def team_user(teamname,us_for_page=10,page_number=1):
 
-        url =  "https://lichess.org/api/user?team="+teamname+"&nb="+str(us_for_page)+"&page="+str(page_number)
+        url =  "https://lichess.org/api/user?team={}&nb={}&page={}".format(teamname,us_for_page,page_number)
 
         try:
             datajson=requests.get(url).json()
