@@ -159,7 +159,7 @@ class tournament_by_id():
             self.standing_sheet.append(i["sheet"])
 
 
-def get_one_tournament(t_id,page):
+def get_one_tournament(t_id,page=1):
     datajson=json.dumps(requests.get("https://lichess.org/api/tournament/{}?page={}".format(t_id,page)).json())
     j=json.loads(datajson)
 

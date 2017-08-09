@@ -5,7 +5,7 @@ from liapi.found_class import *
 
 class user():
 
-    def __init__(self,username,multiuser):
+    def __init__(self,username,multiuser=0):
 
         if multiuser!=1:
             url = 'https://lichess.org/api/user/'+ username

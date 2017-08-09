@@ -48,15 +48,19 @@ class tournaments():
             except:
                 self.__dict__["perf_"+i]=None
 
-            
+
 
 
 
 def get_tournaments(state):
-    datajson=json.dumps(requests.get("https://lichess.org/api/tournament").json())
-    j=json.loads(datajson)
+    if state==("created" or "started" or "finished"):
+        datajson=json.dumps(requests.get("https://lichess.org/api/tournament").json())
+        j=json.loads(datajson)
 
-    tournament_list={}
-    for i in j[state]:
-        tournament_list[i["id"]]=tournaments(i)
-    return tournament_list
+        tournament_list={}
+        for i in j[state]:
+            tournament_list[i["id"]]=tournaments(i)
+        return tournament_list
+
+    else:
+        print(state+" not valid for get_tournaments()")

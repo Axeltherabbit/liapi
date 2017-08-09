@@ -1,1 +1,10 @@
-__all__=["exportpgn","gamesapi","page_data","statusapi","tournamentapi","userapi","found_class","return_objdict","teamapi","tournament_by_idapi"]
+__all__=["exportpgn",
+         "gamesapi",
+         "statusapi",
+         "tournamentapi",
+         "userapi",
+         "teamapi",
+         "tournament_by_idapi",
+         "return_objdict",
+         "found_class",
+         "page_data"]
