@@ -65,7 +65,7 @@ class user():
         for i in games_type:
             for num_content in content:
                 try:
-                    self.__dict__[i+"_"+num_content]=j["perfs"][i]["games"]
+                    self.__dict__[i+"_"+num_content]=j["perfs"][i][num_content]
                 except:
                     self.__dict__[i+"_"+num_content]=None
 
