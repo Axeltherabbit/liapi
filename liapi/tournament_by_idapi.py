@@ -131,21 +131,21 @@ class tournament_by_id():
         for i in content:
             try:
                 self.__dict__["podium_first_nb_sheet_"+i] = \
-                j["podium"][0]["sheet"][i]
+                    j["podium"][0]["sheet"][i]
 
             except:
                 self.__dict__["podium_first_nb_sheet_"+i] = None
 
             try:
                 self.__dict__["podium_second_sheet_"+i] = \
-                j["podium"][1]["sheet"][i]
+                    j["podium"][1]["sheet"][i]
 
             except:
                 self.__dict__["podium_second_sheet_"+i] = None
 
             try:
                 self.__dict__["podium_third_sheet_"+i] = \
-                j["podium"][2]["sheet"][i]
+                    j["podium"][2]["sheet"][i]
 
             except:
                 self.__dict__["podium_third_sheet_"+i] = None
