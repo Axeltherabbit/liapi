@@ -6,9 +6,10 @@ from liapi.page_data import *
 
 def team_user(teamname, us_for_page=10, page_number=1):
 
-        url = "https://lichess.org/api/user?team={}&nb={}&page={}".format(teamname,
-                                                                          us_for_page,
-                                                                          page_number)
+        url = '''https://lichess.org/api/user?\
+                 team={}&nb={}&page={}'''.format(teamname,
+                                                 us_for_page,
+                                                 page_number)
 
         try:
             datajson = requests.get(url).json()
@@ -25,7 +26,8 @@ def team_user(teamname, us_for_page=10, page_number=1):
         cnt = 0
 
         while (sz > cnt):
-            tmp = user(json.dumps(j["paginator"]['currentPageResults'][cnt]), 1)
+            tmp = \
+               user(json.dumps(j["paginator"]['currentPageResults'][cnt]), 1)
             us_list[tmp.id] = tmp
             cnt += 1
 
