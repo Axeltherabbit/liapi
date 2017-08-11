@@ -130,17 +130,23 @@ class tournament_by_id():
         content = ["scores", "total", "fire"]
         for i in content:
             try:
-                self.__dict__["podium_first_nb_sheet_"+i] = j["podium"][0]["sheet"][i]
+                self.__dict__["podium_first_nb_sheet_"+i] = \
+                j["podium"][0]["sheet"][i]
+
             except:
                 self.__dict__["podium_first_nb_sheet_"+i] = None
 
             try:
-                self.__dict__["podium_second_sheet_"+i] = j["podium"][1]["sheet"][i]
+                self.__dict__["podium_second_sheet_"+i] = \
+                j["podium"][1]["sheet"][i]
+
             except:
                 self.__dict__["podium_second_sheet_"+i] = None
 
             try:
-                self.__dict__["podium_third_sheet_"+i] = j["podium"][2]["sheet"][i]
+                self.__dict__["podium_third_sheet_"+i] = \
+                j["podium"][2]["sheet"][i]
+
             except:
                 self.__dict__["podium_third_sheet_"+i] = None
 
@@ -172,7 +178,8 @@ class tournament_by_id():
 
 
 def get_one_tournament(t_id, page=1):
-    datajson = json.dumps(requests.get("https://lichess.org/api/tournament/{}?page={}".format(t_id, page)).json())
+    url = "https://lichess.org/api/tournament/{}?page={}".format(t_id, page)
+    datajson = json.dumps(requests.get(url).json())
     j = json.loads(datajson)
 
     rt = tournament_by_id(j)
