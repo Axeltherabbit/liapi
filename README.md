@@ -50,4 +50,16 @@ for i in users:
 # teamapi
 ### team_user
 The function `team_user(teamname,us_for_page=10,page_number=1)` collect all information of the request:[https://github.com/ornicar/lila/blob/master/README.md#get-apiuser-fetch-many-users-from-a-team]\
-It
+It return a dict of class `user(username)`\
+optional argument:
+- us_for_page [default 10]
+- page_number [default 1]
+```
+from liapi import teamapi
+
+team = teamapi.team_user("coders")
+
+for i in team:
+    print("{} elo classical {}".format(team[i].id,
+                                       team[i].classical_rating))
+```
