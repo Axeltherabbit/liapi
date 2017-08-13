@@ -3,7 +3,7 @@ import requests
 from liapi.found_class import *
 
 
-class jdata():
+class statusdata():
     def __init__(self, j):
         self.Found=1
         content = ["id", "name", "online", "playing"]
@@ -23,7 +23,7 @@ def userstats(players):
     j = json.loads(datajson)
     us_list = {}
     for i in j:
-        us_list[i["id"]] = jdata(i)
+        us_list[i["id"]] = statusdata(i)
 
     us_names = players.split(",")
     nofound_games = set(us_names) - us_list.keys()
