@@ -247,4 +247,18 @@ for i in mygames:
 # statusapi
 ### userstats
 The function `userstats(players)` collect all information of the request:\
-[https://github.com/ornicar/lila#get-apiusersstatus-fetch-many-users-online-and-playing-flags]
+[https://github.com/ornicar/lila#get-apiusersstatus-fetch-many-users-online-and-playing-flags]\
+It return a dict of class `statusdata()`\
+```
+from liapi import statusapi
+
+us_status = statusapi.userstats("pietro9800,dominoc")
+
+# attributes of mygame
+print(dir(us_status[next(iter(us_status))]))
+print()
+
+for i in us_status:
+    if us_status[i].Found == 1:
+        print("{} - online:{}".format(us_status[i].id,us_status[i].online))
+```
