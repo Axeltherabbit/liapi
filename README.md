@@ -202,7 +202,10 @@ mygame = gamesapi.game_id("hxCQxeDy")
 print(dir(mygame))
 print()
 
-print('''game {} - winner: {} \n\
+# Before doing something check if is the game was found
+if mygame.Found == 1:
+    
+    print('''game {} - winner: {} \n\
 [black: {} - white: {}]'''.format(mygame.id,
                                   mygame.winner,
                                   mygame.black_userId,
@@ -219,5 +222,29 @@ optional argument:
 - opening [default 0]
 - fens [default 0]
 ```
+from liapi import gamesapi
+
+mygames = gamesapi.many_games_id("hxCQxeDy,8TNtcEiZ")
+
+
+# attributes of elements of mygames
+print(dir(mygames[next(iter(mygames))]))
+
+# print all keys
+print("\n\n")
+print(mygames.keys())
+print()
+
+for i in mygames:
+    if mygames[i].Found == 1:
+        print('''game {} - winner: {} \n\
+[black: {} - white: {}]'''.format(mygames[i].id,
+                                  mygames[i].winner,
+                                  mygames[i].black_userId,
+                                  mygames[i].white_userId))
 
 ```
+# statusapi
+### userstats
+The function `userstats(players)` collect all information of the request:\
+[https://github.com/ornicar/lila#get-apiusersstatus-fetch-many-users-online-and-playing-flags]
