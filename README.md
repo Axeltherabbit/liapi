@@ -12,7 +12,7 @@ $ sudo python setup.py install
 
 # How work
 liapi is a wrapper, it work through Lichess http api, official documentation [https://github.com/ornicar/lila#http-api]\
-Any information of the http request return as attribute, if the api don't send something becouse the user has not done yet it, the attribute is equal to `None`, for example if an user have never played a _crazy house_ game or if optional arguments of a request function are `0`.
+Any information of the http request return as attribute, if the api don't send something becouse the user has not done yet it or if optional arguments of a request function are `0`, the attribute is equal to `None`, for example if an user have never played a _crazy house_ game.
 
 # userapi
 ### user
@@ -105,3 +105,6 @@ for i in mygames:
 
 
 ```
+### pvp_games
+The function `pvp_games(user1, user2, games_number=10, ...)`collect all information of the request: \
+[https://github.com/ornicar/lila/blob/master/README.md#get-apigamesvsusernameusername-fetch-games-between-2-users]
