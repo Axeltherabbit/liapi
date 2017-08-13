@@ -12,7 +12,9 @@ $ sudo python setup.py install
 
 # How work
 liapi is a wrapper, it work through Lichess http api, official documentation [https://github.com/ornicar/lila#http-api]\
-Any information of the http request return as attribute, if the api don't send something becouse the user has not done yet it or if optional arguments of a request function are `0`, the attribute is equal to `None`, for example if an user have never played a _crazy house_ game.
+Any information of the http request return as attribute, if the api don't send something becouse the user has not done yet it or if optional arguments of a request function are `0`, the attribute is equal to `None`, for example if an user have never played a _crazy house_ game.\
+\
+***To respect the API servers and avoid an IP ban, please wait 1 second between requests.***
 
 # userapi
 ### user
@@ -107,4 +109,115 @@ for i in mygames:
 ```
 ### pvp_games
 The function `pvp_games(user1, user2, games_number=10, ...)`collect all information of the request: \
-[https://github.com/ornicar/lila/blob/master/README.md#get-apigamesvsusernameusername-fetch-games-between-2-users]
+[https://github.com/ornicar/lila/blob/master/README.md#get-apigamesvsusernameusername-fetch-games-between-2-users]\
+It return a dict of class `game_info(dict)`\
+optional argument:
+- games_number [default 10]
+- page_number [default 1]
+- analysis [default 0]
+- moves [default 0]
+- opening [default 0]
+- movetimes [default 0]
+- rated [default 0]
+- playing [default 0]
+```
+from liapi import gamesapi
+
+mygames = gamesapi.pvp_games("pietro9800","matlord11",analysis=1,opening=1)
+
+# attributes of mygames
+print(dir(mygames))
+print()
+# attributes of elements of mygames
+print(dir(mygames[next(iter(mygames))]))
+
+# print all keys
+print("\n\n")
+print(mygames.keys())
+print()
+
+print("page number:{}".format(mygames.currentPage))
+for i in mygames:
+    print('''game {} - winner: {} \n\
+[black: {} - white: {}]'''.format(mygames[i].id,
+                                  mygames[i].winner,
+                                  mygames[i].black_userId,
+                                  mygames[i].white_userId))
+```
+### team_games
+The function `team_games(team_name, games_number=10, page_number=1, ...)`collect all information of the request:\
+[https://github.com/ornicar/lila/blob/master/README.md#get-apigamesteamteamid-fetch-games-between-players-of-a-team]\
+It return a dict of class `game_info(dict)`\
+***warning this api is slow***\
+optional argument:
+- games_number [default 10]
+- page_number [default 1]
+- analysis [default 0]
+- moves [default 0]
+- opening [default 0]
+- movetimes [default 0]
+- rated [default 0]
+- playing [default 0]
+```
+from liapi import gamesapi
+
+mygames = gamesapi.team_games("freenode")
+
+# attributes of mygames
+print(dir(mygames))
+print()
+# attributes of elements of mygames
+print(dir(mygames[next(iter(mygames))]))
+
+# print all keys
+print("\n\n")
+print(mygames.keys())
+print()
+
+print("page number:{}".format(mygames.currentPage))
+for i in mygames:
+    print('''game {} - winner: {} \n\
+[black: {} - white: {}]'''.format(mygames[i].id,
+                                  mygames[i].winner,
+                                  mygames[i].black_userId,
+                                  mygames[i].white_userId))
+
+```
+### game_id
+The function `game_id(g_id, analysis=0, moves=0,...)` collect all information of the request:\
+[https://github.com/ornicar/lila/blob/master/README.md#get-apigameid-fetch-one-game-by-id]\
+It return a class `game_info()`\
+optional argument:
+- analysis [default 0]
+- moves [default 0]
+- movetimes [default 0]
+- opening [default 0]
+- fens [default 0]
+```
+from liapi import gamesapi
+
+mygame = gamesapi.game_id("hxCQxeDy")
+
+# attributes of mygame
+print(dir(mygame))
+print()
+
+print('''game {} - winner: {} \n\
+[black: {} - white: {}]'''.format(mygame.id,
+                                  mygame.winner,
+                                  mygame.black_userId,
+                                  mygame.white_userId))
+```
+### many_games_id
+The function `many_game_id(g_id, analysis=0, moves=0,...)` collect all information of the request:\
+[https://github.com/ornicar/lila/blob/master/README.md#post-apigames-fetch-many-games-by-id]\
+It return a dict of class `game_info()`\
+optional argument:
+- analysis [default 0]
+- moves [default 0]
+- movetimes [default 0]
+- opening [default 0]
+- fens [default 0]
+```
+
+```
