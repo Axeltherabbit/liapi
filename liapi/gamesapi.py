@@ -112,18 +112,17 @@ def gamesdata(username,
     # information: https://github.com/ornicar/lila/blob/master/README.md
 
     url = '''https://lichess.org/api/user/\
-             {}/games?nb={}&page={}&with_analysis={}\
-             &with_moves={}&with_opening={}\
-             &with_movetimes={}&rated={}\
-             &playing={}'''.format(username,
-                                   games_number,
-                                   page_number,
-                                   analysis,
-                                   moves,
-                                   opening,
-                                   movetimes,
-                                   rated,
-                                   playing)
+{}/games?nb={}&page={}&with_analysis={}\
+&with_moves={}&with_opening={}&with_movetimes={}&rated={}\
+&playing={}'''.format(username,
+                      games_number,
+                      page_number,
+                      analysis,
+                      moves,
+                      opening,
+                      movetimes,
+                      rated,
+                      playing)
 
     return extract(url)
 
@@ -141,18 +140,17 @@ def pvp_games(user1,
     # information: https://github.com/ornicar/lila/blob/master/README.md
 
     url = '''https://lichess.org/api/games/vs/{}/{}?nb={}\
-             &page={}&with_analysis={}&with_moves={}\
-             &with_opening={}&with_movetimes={}\
-             &rated={}&playing={}'''.format(user1,
-                                            user2,
-                                            games_number,
-                                            page_number,
-                                            analysis,
-                                            moves,
-                                            opening,
-                                            movetimes,
-                                            rated,
-                                            playing)
+&page={}&with_analysis={}&with_moves={}&with_opening={}\
+&with_movetimes={}&rated={}&playing={}'''.format(user1,
+                                                 user2,
+                                                 games_number,
+                                                 page_number,
+                                                 analysis,
+                                                 moves,
+                                                 opening,
+                                                 movetimes,
+                                                 rated,
+                                                 playing)
     return extract(url)
 
 
@@ -167,17 +165,16 @@ def team_games(team_name,
                playing=0):
     # warning lichess api are slow
     url = '''https://lichess.org/api/games/team/{}?nb={}\
-             &page={}&with_analysis={}&with_moves={}\
-             &with_opening={}&with_movetimes={}\
-             &rated={}&playing={}'''.format(team_name,
-                                            games_number,
-                                            page_number,
-                                            analysis,
-                                            moves,
-                                            opening,
-                                            movetimes,
-                                            rated,
-                                            playing)
+&page={}&with_analysis={}&with_moves={}&with_opening={}\
+&with_movetimes={}&rated={}&playing={}'''.format(team_name,
+                                                 games_number,
+                                                 page_number,
+                                                 analysis,
+                                                 moves,
+                                                 opening,
+                                                 movetimes,
+                                                 rated,
+                                                 playing)
 
     return extract(url)
 
@@ -189,14 +186,13 @@ def game_id(g_id,
             opening=0,
             fens=0):
     url = '''https://lichess.org/api/game/{}?\
-             with_analysis={}&with_moves={}&\
-             with_movetimes={}&with_opening={}&\
-             with_fens={}'''.format(g_id,
-                                    analysis,
-                                    moves,
-                                    movetimes,
-                                    opening,
-                                    fens)
+with_analysis={}&with_moves={}&with_movetimes={}\
+&with_opening={}&with_fens={}'''.format(g_id,
+                                        analysis,
+                                        moves,
+                                        movetimes,
+                                        opening,
+                                        fens)
 
     try:
         datajson = json.dumps(requests.get(url).json())
@@ -214,12 +210,13 @@ def many_games_id(games_id_list,
                   opening=0,
                   fens=0):
     url = '''https://lichess.org/api/games?with_analysis={}\
-             &with_moves={}&with_movetimes={}\
-             &with_opening={}&with_fens={}'''.format(analysis,
-                                                     moves,
-                                                     movetimes,
-                                                     opening,
-                                                     fens)
+&with_moves={}&with_movetimes={}&with_opening={}\
+&with_fens={}'''.format(analysis,
+                        moves,
+                        movetimes,
+                        opening,
+                        fens)
+
     try:
         datajson = \
                 requests.post(url=url, headers=None, data=games_id_list).json()
