@@ -259,6 +259,13 @@ print(dir(us_status[next(iter(us_status))]))
 print()
 
 for i in us_status:
+
+    # Before doing something check if is the game was found
     if us_status[i].Found == 1:
         print("{} - online:{}".format(us_status[i].id,us_status[i].online))
 ```
+# tournamentapi
+### get_tournaments
+the function `get_tournaments(state)` collect all information of the request:\
+[https://github.com/ornicar/lila#get-apitournament-fetch-current-tournaments]\
+It return a dict of class `tournaments()`
