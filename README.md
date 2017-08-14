@@ -43,6 +43,11 @@ users = userapi.get_user_list("pietro9800,dominoc")
 
 # print all keys
 print(users.keys())
+print()
+
+# print all attributes of elements of users
+print(dir(users[next(iter(users))]))
+print()
 
 for i in users:
     if users[i].Found == 1:
@@ -63,6 +68,14 @@ optional argument:
 from liapi import teamapi
 
 team = teamapi.team_user("coders")
+
+# print all attributes of elements of team
+print(dir(team[next(iter(team))]))
+print()
+
+# print all keys
+print(team.keys())
+print()
 
 for i in team:
     print("{} elo classical {}".format(team[i].id,
@@ -254,7 +267,7 @@ from liapi import statusapi
 
 us_status = statusapi.userstats("pietro9800,dominoc")
 
-# attributes of mygame
+# attributes of us_status
 print(dir(us_status[next(iter(us_status))]))
 print()
 
@@ -269,3 +282,22 @@ for i in us_status:
 the function `get_tournaments(state)` collect all information of the request:\
 [https://github.com/ornicar/lila#get-apitournament-fetch-current-tournaments]\
 It return a dict of class `tournaments()`
+get_torunaments state options:\
+- "created"
+- "started"
+- "finished" 
+```
+from liapi import tournamentapi
+
+tournament_list =  tournamentapi.get_tournaments("finished")
+
+# attributes of tournament_list
+print(dir(tournament_list[next(iter(tournament_list))]))
+print()
+
+for i in tournament_list:
+    print("{} - winner:{}".format(tournament_list[i].id,
+                                  tournament_list[i].winner["id"]))
+```
+# tournament_by_idapi
+### 
