@@ -50,7 +50,7 @@ class tournaments():
 
 
 def get_tournaments(state):
-    if state == ("created" or "started" or "finished"):
+    if state in ["created","started","finished"]:
         url = "https://lichess.org/api/tournament"
         datajson = json.dumps(requests.get(url).json())
 
