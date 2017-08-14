@@ -4,5 +4,5 @@ setup(
       name='liapi',
       packages=['liapi'],
       description='A lichess api wrapper for python',
-      version='0.5'
+      version='1.0'
 )
