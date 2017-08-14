@@ -1,9 +1,11 @@
 import requests
 import json
+from liapi.found_class import *
 
 
 class tournament_by_id():
     def __init__(self, j):
+        self.Found=1
         content = ["id",
                    "createdBy",
                    "system",
@@ -179,8 +181,12 @@ class tournament_by_id():
 
 def get_one_tournament(t_id, page=1):
     url = "https://lichess.org/api/tournament/{}?page={}".format(t_id, page)
-    datajson = json.dumps(requests.get(url).json())
-    j = json.loads(datajson)
+    try:
+        datajson = json.dumps(requests.get(url).json())
+        j = json.loads(datajson)
+        rt = tournament_by_id(j)
 
-    rt = tournament_by_id(j)
+    except:
+        rt = nofound()
+        
     return rt
