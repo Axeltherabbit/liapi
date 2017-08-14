@@ -10,7 +10,7 @@ $ sudo python setup.py install
 
 # How work
 liapi is a wrapper, it work through Lichess http api, official documentation [https://github.com/ornicar/lila#http-api]\
-Any information of the http request return as attribute, if the api don't send something becouse the user has not done yet it or if optional arguments of a request function are `0`, the attribute is equal to `None`, for example if an user have never played a _crazy house_ game.\
+Any information of the http request return as attribute, if the api don't send something because the user has not done yet it or if optional arguments of a request function are `0`, the attribute is equal to `None`, for example if an user have never played a _crazy house_ game.\
 \
 ***To respect the API servers and avoid an IP ban, please wait 1 second between requests.***
 
