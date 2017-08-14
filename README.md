@@ -1,7 +1,5 @@
 # liapi
 lichess python api wrapper\
-***This is an ALPHA version***\
-***README WORK IN PROGRESS***
 
 # install
 ```
@@ -281,8 +279,8 @@ for i in us_status:
 ### get_tournaments
 the function `get_tournaments(state)` collect all information of the request:\
 [https://github.com/ornicar/lila#get-apitournament-fetch-current-tournaments]\
-It return a dict of class `tournaments()`
-get_torunaments state options:\
+It return a dict of class `tournaments()`\
+get_tournaments state options:
 - "created"
 - "started"
 - "finished" 
@@ -300,4 +298,21 @@ for i in tournament_list:
                                   tournament_list[i].winner["id"]))
 ```
 # tournament_by_idapi
-### 
+### get_one_tournament
+the function `get_one_tournament(t_id, page=1)` collect all information of the request:\
+[https://github.com/ornicar/lila#get-apitournamenttournamentid-fetch-one-tournament]\
+It return a class `tournament_by_id()`\
+optional argument:
+- page [default 1]
+```
+from liapi import tournament_by_idapi
+
+tournament = tournament_by_idapi.get_one_tournament("x5WNIngd")
+
+# Before doing something check if is the tournament was found
+if tournament.Found==1:
+
+    # print all attributes of elements of team
+    print(dir(tournament))
+
+```
