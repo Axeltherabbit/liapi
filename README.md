@@ -1,5 +1,5 @@
 # liapi
-lichess python api wrapper\
+lichess python api wrapper
 
 # install
 ```
