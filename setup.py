@@ -12,5 +12,8 @@ setup(
           'Intended Audience :: Developers',
           'Programming Language :: Python',
                   ],
+      keywords = ['wrapper', 'lichess', 'api','chess'],
+      url = 'https://github.com/Axeltherabbit/liapi/',
+      
       version='1.0'
 )
