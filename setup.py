@@ -4,5 +4,14 @@ setup(
       name='liapi',
       packages=['liapi'],
       description='A lichess api wrapper for python',
+      install_requires=["requests","json"],
+      description='Python wrapper for lichess api',
+      author='Axeltherabbit',
+      author_email='backb0x@hotmail.com',
+      classifiers=[
+          'Development Status :: 4 - Beta',
+          'Intended Audience :: Developers',
+          'Programming Language :: Python',
+                  ],
       version='1.0'
 )
