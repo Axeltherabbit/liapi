@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 setup(
       name='liapi',
       packages=['liapi'],
-      install_requires=["requests","json"],
+      install_requires=["requests"],
       description='Python wrapper for lichess api',
       author='Axeltherabbit',
       author_email='backb0x@hotmail.com',
