@@ -48,6 +48,7 @@ class user():
                       "correspondence",
                       "puzzle",
                       "atomic",
+                      "rapid",
                       "classical",
                       "racingKings",
                       "horde",
