@@ -15,5 +15,5 @@ setup(
       keywords = ['wrapper', 'lichess', 'api','chess'],
       url = 'https://github.com/Axeltherabbit/liapi/',
       
-      version='1.0'
+      version='1.01'
 )
