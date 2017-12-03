@@ -53,7 +53,25 @@ for i in users:
         print("{} elo classical {}".format(users[i].id,
                                            users[i].classical_rating))
 ```
+# activityapi
+The function `get_activity(username)` collect all information of the request:[https://github.com/ornicar/lila#get-apiuserusernameactivity-fetch-recent-user-activity].\
+It return a list of class `activity(j)`
+```
+from liapi import activityapi
 
+act =  activityapi.get_activity("thibault")
+
+for i in act:
+    for k in i.posts:
+        #print post topicName
+        print(k["topicName"], ":")
+        
+        #print each post text
+        for el in k["posts"]:
+            print(el["text"])
+
+        print()
+```
 # teamapi
 ### team_user
 The function \ 
