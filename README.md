@@ -1,7 +1,7 @@
-# liapi
-lichess python api wrapper
+# Liapi
+Lichess python api wrapper
 
-# install
+# Install
 ```
 $ git clone https://github.com/Axeltherabbit/liapi
 $ cd liapi
