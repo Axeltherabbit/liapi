@@ -7,4 +7,5 @@ __all__ = ["exportpgn",
            "tournament_by_idapi",
            "return_objdict",
            "found_class",
-           "page_data"]   
+           "page_data",
+           "activityapi"]   
