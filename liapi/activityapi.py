@@ -1,10 +1,11 @@
 import json
 import requests
 
+
 class activity():
     def __init__(self, j):
 
-        #interval
+        # interval
         content = ["start", "end"]
         for i in content:
             try:
@@ -12,7 +13,7 @@ class activity():
             except:
                 self.__dict__["interval_"+i] = None
 
-        #games
+        # games
         games_type = ["chess960",
                       "blitz",
                       "crazyhouse",
@@ -33,16 +34,17 @@ class activity():
                     for t in games_type:
                         for k in content:
                             try:
-                                self.__dict__["games_"+t+"_"+k]=j["games"][t][k]
+                                self.__dict__["games_"+t+"_"+k] = \
+                                    j["games"][t][k]
                             except:
-                                self.__dict__["games_"+t+"_"+k]=None
+                                self.__dict__["games_"+t+"_"+k] = None
 
         except:
             for t in games_type:
                 for k in content:
-                    self.__dict__["games_"+t+"_"+k]=None
+                    self.__dict__["games_"+t+"_"+k] = None
 
-        #correspondenceMoves
+        # correspondenceMoves
         try:
             self.correspondence_nb = j["correspondenceMoves"]["nb"]
         except:
@@ -56,7 +58,7 @@ class activity():
         except:
             pass
 
-        #tournaments
+        # tournaments
         try:
             self.tournaments_nb = j["tournaments"]["nb"]
         except:
@@ -69,29 +71,29 @@ class activity():
         except:
             pass
 
-        #follows
+        # follows
         try:
             self.follows_nb = j["follows"]["in"]["nb"]
         except:
             self.follows_nb = None
 
-        self.follows=[]
+        self.follows = []
         try:
             for i in j["follows"]["in"]["ids"]:
                 self.follows.append(i)
         except:
             pass
 
-        #puzzles
-        content = ["win","loss","draw","rp"]
+        # puzzles
+        content = ["win", "loss", "draw", "rp"]
         for i in content:
             try:
                 self.__dict__["puzzles_"+i] = j["puzzles"]["score"][i]
             except:
                 self.__dict__["puzzles_"+i] = None
 
-        #posts
-        self.posts=[]
+        # posts
+        self.posts = []
         try:
             for i in j["posts"]:
                 self.posts.append(i)
@@ -100,12 +102,12 @@ class activity():
 
 
 def get_activity(us_name):
-    url="https://lichess.org/api/user/{}/activity".format(us_name)
+    url = "https://lichess.org/api/user/{}/activity".format(us_name)
 
     datajson = requests.get(url).text
     j = json.loads(datajson)
 
-    act_list=[]
+    act_list = []
     for i in j:
         act_list.append(activity(i))
 
