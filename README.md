@@ -25,7 +25,7 @@ from liapi import userapi
 us = userapi.user("pietro9800")
 
 # Before doing something check if is the user was found
-if us.Found == 1:
+if us.Found:
     
     # print all attributes
     print(dir(us))
@@ -48,7 +48,7 @@ print(dir(users[next(iter(users))]))
 print()
 
 for i in users:
-    if users[i].Found == 1:
+    if users[i].Found:
         # print classical elo for each user in the dict
         print("{} elo classical {}".format(users[i].id,
                                            users[i].classical_rating))
@@ -265,7 +265,7 @@ print(mygames.keys())
 print()
 
 for i in mygames:
-    if mygames[i].Found == 1:
+    if mygames[i].Found:
         print('''game {} - winner: {} \n\
 [black: {} - white: {}]'''.format(mygames[i].id,
                                   mygames[i].winner,
@@ -290,7 +290,7 @@ print()
 for i in us_status:
 
     # Before doing something check if is the game was found
-    if us_status[i].Found == 1:
+    if us_status[i].Found:
         print("{} - online:{}".format(us_status[i].id,us_status[i].online))
 ```
 # tournamentapi
@@ -328,7 +328,7 @@ from liapi import tournament_by_idapi
 tournament = tournament_by_idapi.get_one_tournament("x5WNIngd")
 
 # Before doing something check if is the tournament was found
-if tournament.Found==1:
+if tournament.Found:
 
     # print all attributes of elements of team
     print(dir(tournament))
