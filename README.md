@@ -328,7 +328,7 @@ from liapi import tournament_by_idapi
 tournament = tournament_by_idapi.get_one_tournament("x5WNIngd")
 
 # Before doing something check if is the tournament was found
-if tournament.Found==1:
+if tournament.Found:
 
     # print all attributes of elements of team
     print(dir(tournament))
