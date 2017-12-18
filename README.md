@@ -232,7 +232,7 @@ print(dir(mygame))
 print()
 
 # Before doing something check if is the game was found
-if mygame.Found == 1:
+if mygame.Found:
     
     print('''game {} - winner: {} \n\
 [black: {} - white: {}]'''.format(mygame.id,
