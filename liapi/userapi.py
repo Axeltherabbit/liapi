@@ -32,7 +32,8 @@ class user():
                    "nbFollowing",
                    "nbFollowers",
                    "title",
-                   "engine"]
+                   "engine",
+                   "closed"]
         for i in content:
             try:
                 self.__dict__[i] = j[i]
