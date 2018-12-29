@@ -1,6 +1,6 @@
 # Liapi
-Lichess python api wrapper
-
+Lichess python api wrapper\
+**It's still working fine but it's not up to date at the moment**
 # Install
 ```
 $ git clone https://github.com/Axeltherabbit/liapi
