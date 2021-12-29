@@ -8,15 +8,15 @@ $ cd liapi
 $ sudo python setup.py install
 ```
 
-# How work
-liapi is a wrapper, it work through Lichess http api, official documentation [https://github.com/ornicar/lila#http-api]\
-Any information of the http request return as attribute, if the api don't send something because the user has not done yet it or if optional arguments of a request function are `0`, the attribute is equal to `None`, for example if an user have never played a _crazy house_ game.\
+# How it works
+It works through Lichess http api, official documentation [https://github.com/ornicar/lila#http-api]\
+Any information of the http request returns as attribute, if the api doesn't send something because the user doesn't have it yet or if optional arguments of a request function are `0`, the attribute is equal to `None`, for instance if an user has never played a _crazy house_ game.\
 \
 ***To respect the API servers and avoid an IP ban, please wait 1 second between requests.***
 
 # userapi
 ### user
-The `class user(username)` collect all information of the request: [https://github.com/ornicar/lila/blob/master/README.md#get-apiuserusername-fetch-one-user].\
+The `class user(username)` collects all information of the request: [https://github.com/ornicar/lila/blob/master/README.md#get-apiuserusername-fetch-one-user].\
 The most important attribute is `.Found` it's `1` if the user is found else `0`.
 
 ```
@@ -32,8 +32,8 @@ if us.Found:
 ```
 
 ### get_user_list
-The function `get_user_list(users)` collect all information of the request:[https://github.com/ornicar/lila/blob/master/README.md#post-apiusers-fetch-many-users-by-id].\
-It return a dict of class `user(username)`
+The function `get_user_list(users)` collects all informations of the request:[https://github.com/ornicar/lila/blob/master/README.md#post-apiusers-fetch-many-users-by-id].\
+It returns a dict of class `user(username)`
 ```
 from liapi import userapi
 
@@ -54,8 +54,8 @@ for i in users:
                                            users[i].classical_rating))
 ```
 # activityapi
-The function `get_activity(username)` collect all information of the request:[https://github.com/ornicar/lila#get-apiuserusernameactivity-fetch-recent-user-activity].\
-It return a list of class `activity(j)`
+The function `get_activity(username)` collects all information of the request:[https://github.com/ornicar/lila#get-apiuserusernameactivity-fetch-recent-user-activity].\
+It returns a list of class `activity(j)`
 ```
 from liapi import activityapi
 
@@ -75,8 +75,8 @@ for i in act:
 # teamapi
 ### team_user
 The function \ 
-`team_user(teamname,us_for_page=10,page_number=1)` collect all information of the request:[https://github.com/ornicar/lila/blob/master/README.md#get-apiuser-fetch-many-users-from-a-team]\
-It return a dict of class `user(username)`\
+`team_user(teamname,us_for_page=10,page_number=1)` collects all information of the request:[https://github.com/ornicar/lila/blob/master/README.md#get-apiuser-fetch-many-users-from-a-team]\
+It returns a dict of class `user(username)`\
 optional argument:
 - us_for_page [default 10]
 - page_number [default 1]
@@ -99,8 +99,8 @@ for i in team:
 ```
 # gamesapi
 ### gamesdata
-The function `gamesdata(username,games_number=10,page_number=1,...)` collect all information of the request: [https://github.com/ornicar/lila#get-apiuserusernamegames-fetch-user-games]\
-It return a dict of class `game_info(dict)`\
+The function `gamesdata(username,games_number=10,page_number=1,...)` collects all information of the request: [https://github.com/ornicar/lila#get-apiuserusernamegames-fetch-user-games]\
+It returns a dict of class `game_info(dict)`\
 optional argument:
 - games_number [default 10]
 - page_number [default 1]
@@ -137,9 +137,9 @@ for i in mygames:
 
 ```
 ### pvp_games
-The function `pvp_games(user1, user2, games_number=10, ...)`collect all information of the request: \
+The function `pvp_games(user1, user2, games_number=10, ...)`collects all information of the request: \
 [https://github.com/ornicar/lila/blob/master/README.md#get-apigamesvsusernameusername-fetch-games-between-2-users]\
-It return a dict of class `game_info(dict)`\
+It returns a dict of class `game_info(dict)`\
 optional argument:
 - games_number [default 10]
 - page_number [default 1]
@@ -174,10 +174,10 @@ for i in mygames:
                                   mygames[i].white_userId))
 ```
 ### team_games
-The function `team_games(team_name, games_number=10, page_number=1, ...)`collect all information of the request:\
+The function `team_games(team_name, games_number=10, page_number=1, ...)`collects all information of the request:\
 [https://github.com/ornicar/lila/blob/master/README.md#get-apigamesteamteamid-fetch-games-between-players-of-a-team]\
-It return a dict of class `game_info(dict)`\
-***warning this api is slow***\
+It returns a dict of class `game_info(dict)`\
+***warning this is slow***\
 optional argument:
 - games_number [default 10]
 - page_number [default 1]
@@ -213,9 +213,9 @@ for i in mygames:
 
 ```
 ### game_id
-The function `game_id(g_id, analysis=0, moves=0,...)` collect all information of the request:\
+The function `game_id(g_id, analysis=0, moves=0,...)` collects all information of the request:\
 [https://github.com/ornicar/lila/blob/master/README.md#get-apigameid-fetch-one-game-by-id]\
-It return a class `game_info()`\
+It returns a class `game_info()`\
 optional argument:
 - analysis [default 0]
 - moves [default 0]
@@ -241,9 +241,9 @@ if mygame.Found:
                                   mygame.white_userId))
 ```
 ### many_games_id
-The function `many_game_id(g_id, analysis=0, moves=0,...)` collect all information of the request:\
+The function `many_game_id(g_id, analysis=0, moves=0,...)` collects all information of the request:\
 [https://github.com/ornicar/lila/blob/master/README.md#post-apigames-fetch-many-games-by-id]\
-It return a dict of class `game_info()`\
+It returns a dict of class `game_info()`\
 optional argument:
 - analysis [default 0]
 - moves [default 0]
@@ -275,9 +275,9 @@ for i in mygames:
 ```
 # statusapi
 ### userstats
-The function `userstats(players)` collect all information of the request:\
+The function `userstats(players)` collects all information of the request:\
 [https://github.com/ornicar/lila#get-apiusersstatus-fetch-many-users-online-and-playing-flags]\
-It return a dict of class `statusdata()`\
+It returns a dict of class `statusdata()`\
 ```
 from liapi import statusapi
 
@@ -295,9 +295,9 @@ for i in us_status:
 ```
 # tournamentapi
 ### get_tournaments
-the function `get_tournaments(state)` collect all information of the request:\
+the function `get_tournaments(state)` collects all information of the request:\
 [https://github.com/ornicar/lila#get-apitournament-fetch-current-tournaments]\
-It return a dict of class `tournaments()`\
+It returns a dict of class `tournaments()`\
 get_tournaments state options:
 - "created"
 - "started"
@@ -317,9 +317,9 @@ for i in tournament_list:
 ```
 # tournament_by_idapi
 ### get_one_tournament
-the function `get_one_tournament(t_id, page=1)` collect all information of the request:\
+the function `get_one_tournament(t_id, page=1)` collects all information of the request:\
 [https://github.com/ornicar/lila#get-apitournamenttournamentid-fetch-one-tournament]\
-It return a class `tournament_by_id()`\
+It returns a class `tournament_by_id()`\
 optional argument:
 - page [default 1]
 ```
